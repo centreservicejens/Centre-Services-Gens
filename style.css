@@ -701,3 +701,11 @@ section{
   height: 25px !important;
   object-fit: contain;
 }
+
+body {
+  font-family: "Cairo", "Tajawal", "Noto Sans Arabic",
+               "Segoe UI", Tahoma, Geneva,
+               "Helvetica Neue", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}

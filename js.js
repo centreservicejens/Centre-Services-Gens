@@ -1,85 +1,74 @@
-const closeBtn = document.querySelector('.close-btn');
-const backWindow = document.querySelector('.face.back');
+/* =======================================================
+   BURGER MENU (nav mobile)
+======================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const burgerBtn = document.getElementById("burgerBtn");
+  const navLinks = document.getElementById("navLinks");
 
-closeBtn.addEventListener('click', () => {
-    backWindow.style.display = 'none';
+  if (burgerBtn && navLinks) {
+    // Ftou7 / sd l-menu mli ndosou 3la l-burger
+    burgerBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      burgerBtn.classList.toggle("active");
+    });
+
+    // Sed l-menu mli ndosou 3la chi bouton mn dakhlou (ba3d ma scrollina)
+    navLinks.querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        burgerBtn.classList.remove("active");
+      });
+    });
+
+    // Sed l-menu mli ndosou barra mnou (khassoss dyal UX)
+    document.addEventListener("click", (e) => {
+      const clickedInsideNav = navLinks.contains(e.target) || burgerBtn.contains(e.target);
+      if (!clickedInsideNav && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        burgerBtn.classList.remove("active");
+      }
+    });
+  }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-        const showBtn = document.getElementById('show-btn');
-        const ele = document.getElementsByClassName('back');
-        showBtn.addEventListener('click', function() {
-            ele.style.display = 'block';
-        });
+/* =======================================================
+   SCROLL TO SECTION (nav-links + smooth scroll)
+======================================================= */
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  if (!section) return;
 
-});
+  const navbar = document.querySelector(".navbar");
+  const navHeight = navbar ? navbar.offsetHeight : 0;
 
-// js bach nzid activity jdida b dynamique men kul waqt
-  const container = document.getElementById('activities-container');
+  const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
 
-  function addActivity({ icon = '✨', title = 'نشاط جديد', desc = '', duration = '', place = '' }) {
-    const card = document.createElement('div');
-    card.className = 'activity';
-    card.innerHTML = `
-      <span class="icon">${icon}</span>
-      <h3>${title}</h3>
-      <p>${desc}</p>
-      <div class="meta">
-        <span>⏱ ${duration}</span>
-        <span>📍 ${place}</span>
-      </div>
-    `;
-    container.appendChild(card);
-  }
-
-  function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({ behavior:'smooth' });
-    document.getElementById('navLinks').classList.remove('open');
-  }
-
-  document.getElementById('burgerBtn').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
+  window.scrollTo({
+    top: sectionTop - navHeight,
+    behavior: "smooth"
   });
 
-  // js bach nzid activity jdida b dynamique
-  function addActivity({ icon = '✨', title = 'نشاط جديد', desc = '', duration = '', place = '' }) {
-    const container = document.getElementById('activities-container');
-    const card = document.createElement('div');
-    card.className = 'activity';
-    card.innerHTML = `
-      <span class="icon">${icon}</span>
-      <h3>${title}</h3>
-      <p>${desc}</p>
-      <div class="meta">
-        <span>⏱ ${duration}</span>
-        <span>📍 ${place}</span>
-      </div>
-    `;
-    container.appendChild(card);
-  }
+  // Sed l-menu dyal mobile ila kan mahlol
+  const navLinks = document.getElementById("navLinks");
+  const burgerBtn = document.getElementById("burgerBtn");
+  if (navLinks) navLinks.classList.remove("open");
+  if (burgerBtn) burgerBtn.classList.remove("active");
+}
 
-  // js bach nzid worker jdid b dynamique
-  function addWorker({ initial = 'A', name = 'اسم العامل', role = '', desc = '' }) {
-    const container = document.getElementById('workers-container');
-    const card = document.createElement('div');
-    card.className = 'worker';
-    card.innerHTML = `
-      <div class="avatar">${initial}</div>
-      <h3>${name}</h3>
-      <div class="role">${role}</div>
-      <p>${desc}</p>
-    `;
-    container.appendChild(card);
-  }
+/* =======================================================
+   ZID ACTIVITÉ JDIDA B DYNAMIQUE (utilitaire ikhtiyari)
+   Exemple d'utilisation dans la console:
+   addActivity({ icon: "🎤", title: "الغناء" });
+======================================================= */
+function addActivity({ icon = "✨", title = "نشاط جديد" } = {}) {
+  const container = document.getElementById("activities-container");
+  if (!container) return;
 
-   const workWindow = document.getElementById('work-window');
-  document.getElementById('show-btn').addEventListener('click', () => {
-    workWindow.style.display = 'block';
-  });
-  document.getElementById('close-btn').addEventListener('click', () => {
-    workWindow.style.display = 'none';
-  });
-
-  const whoareweCard = document.getElementById('whoareweCard');
-document.getElementById('show-btn').addEventListener('click', () => whoareweCard.classList.add('flipped'));
-document.getElementById('close-btn').addEventListener('click', () => whoareweCard.classList.remove('flipped'));
+  const chip = document.createElement("div");
+  chip.className = "chip";
+  chip.innerHTML = `
+    <span class="chip-icon">${icon}</span>
+    <span class="chip-title">${title}</span>
+  `;
+  container.appendChild(chip);
+}
