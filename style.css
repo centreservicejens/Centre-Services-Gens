@@ -1,0 +1,703 @@
+/* =======================================================
+   RESET + ROOT VARIABLES
+======================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --bg: #0e1f1a;
+  --panel: #123329;
+  --gold: #d4af37;
+  --gold-light: #f3d576;
+  --text: #f1ead9;
+  --muted: #a9c2b6;
+  --border: rgba(212,175,55,0.35);
+  --nav-h: 76px;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 10%, #163a2e, var(--bg) 60%);
+  font-family: "Tahoma", "Segoe UI", sans-serif;
+  color: var(--text);
+  padding: 40px 20px;
+  padding-top: var(--nav-h);
+}
+
+/* =======================================================
+   NAVBAR
+======================================================= */
+.navbar{
+  position: fixed;
+  top: 0; right: 0; left: 0;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 36px;
+  background: rgba(14,31,26,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.navbar .logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .logo img{
+  height: 44px;
+  width: 74px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.navbar .logo span{
+  font-weight: 800;
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  letter-spacing: .5px;
+}
+
+.nav-links{
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.nav-links button{
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+
+.nav-links button:hover{
+  color: var(--gold-light);
+  border-color: var(--border);
+  background: rgba(212,175,55,0.08);
+}
+
+.burger{
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.burger span{
+  width: 24px; height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+@media (max-width: 720px){
+  .nav-links{
+    position: fixed;
+    top: var(--nav-h);
+    right: 0; left: 0;
+    flex-direction: column;
+    background: rgba(14,31,26,0.97);
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-140%);
+    transition: transform .25s ease;
+  }
+  .nav-links.open{ transform: translateY(0); }
+  .burger{ display: flex; }
+}
+
+/* =======================================================
+   SECTIONS GENERALES
+======================================================= */
+section{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 24px 40px;
+  scroll-margin-top: var(--nav-h);
+}
+
+.section-title{
+  text-align: center;
+  margin-bottom: 46px;
+}
+
+.section-title h2{
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold) 55%, #9c7a1f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 12px rgba(212,175,55,0.25);
+}
+
+.section-title .divider{
+  width: 90px;
+  height: 2px;
+  margin: 16px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* =======================================================
+   HOURS — FLIP CARD (توقيت العمل)
+======================================================= */
+.hours-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.flip-card{
+  width: 320px;
+  height: 420px;
+  max-width: 100%;
+  perspective: 1600px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flip-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform .7s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner{
+  transform: rotateY(180deg);
+}
+
+.flip-card:focus-visible .flip-inner{
+  box-shadow: 0 0 0 3px var(--gold-light);
+  border-radius: 18px;
+}
+
+.flip-face{
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(155deg, var(--panel), #0e241d);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+}
+
+/* الوجه الأول: اللوغو */
+.flip-front{
+  gap: 14px;
+}
+
+.open-badge{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--gold);
+  color: #123329;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.flip-logo{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(212,175,55,0.12);
+}
+
+.flip-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flip-front h3{
+  color: var(--gold-light);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.flip-hint{
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 6px;
+}
+
+/* الوجه الثاني: توقيت العمل */
+.flip-back{
+  transform: rotateY(180deg);
+  gap: 12px;
+}
+
+.flip-back h3{
+  color: var(--gold-light);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hours-block{
+  width: 100%;
+  background: rgba(212,175,55,0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.hours-days{
+  display: block;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: .9rem;
+  margin-bottom: 6px;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+}
+
+.hours-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .88rem;
+  padding: 3px 0;
+}
+
+.hours-row .hours-label{
+  color: var(--muted);
+}
+
+.hours-row .hours-time{
+  color: var(--text);
+  font-weight: 700;
+  direction: ltr;
+}
+
+.hours-contact{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.hours-contact a{
+  color: var(--gold);
+  text-decoration: none;
+  font-size: .85rem;
+  direction: ltr;
+}
+
+.hours-contact a:hover{
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 400px){
+  .flip-card{ width: 90vw; height: 440px; }
+}
+
+/* =======================================================
+   ACTIVITIES — chips mokhtassarin (b7al f-poster)
+======================================================= */
+.reg-badge{
+  display: inline-block;
+  margin-top: 14px;
+  position: static;
+}
+
+.chip-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.chip{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(155deg, var(--panel), #0e241d);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.chip:hover{
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
+.chip-icon{
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.chip-title{
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+
+.activities-contact{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--border);
+  font-size: .85rem;
+  color: var(--gold);
+}
+
+.activities-contact a{
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.activities-contact a:hover{
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
+/* =======================================================
+   ACTIVITIES DETAILS — kartat mfassla (nsekha n7ayiya)
+======================================================= */
+#activities-details{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 34px;
+  padding-top: 34px;
+  border-top: 1px dashed var(--border);
+}
+
+.activity{
+  position: relative;
+  background: linear-gradient(155deg, var(--panel), #0e241d);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.activity::before{
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 70px; height: 70px;
+  background: radial-gradient(circle at top right, rgba(212,175,55,0.25), transparent 70%);
+}
+
+.activity::after{
+  content: "";
+  position: absolute;
+  left: 22px; bottom: 18px;
+  width: 34px; height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.activity:hover{
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+}
+
+.activity .icon{
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.activity h3{
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.activity .subtitle{
+  margin: 0 0 10px;
+  font-size: .8rem;
+  color: var(--gold);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.activity p{
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+.activity .tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.activity .tags span{
+  font-size: .72rem;
+  color: var(--gold-light);
+  background: rgba(212,175,55,0.1);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.activity .meta{
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .8rem;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.activity .meta a{
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.activity .meta a:hover{
+  text-decoration: underline;
+  color: var(--gold-light);
+}
+
+.activity .badge{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.badge.free{
+  background: var(--gold);
+  color: #123329;
+}
+
+.badge.deadline{
+  background: rgba(224,122,107,0.15);
+  color: #e07a6b;
+  border: 1px solid rgba(224,122,107,0.4);
+}
+
+/* tswira sghira wad7a fakher kol activity (SVG bl3arabiya) */
+.activity .activity-img{
+  width: 100%;
+  height: 110px;
+  border-radius: 10px;
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0c2b22, #163a2e);
+}
+
+.activity .activity-img svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =======================================================
+   TEAM — carte visite moustatila (khlasa)
+======================================================= */
+.team-card{
+  display: flex;
+  align-items: flex-start;
+  gap: 26px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(155deg, var(--panel), #0e241d);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px 34px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+.team-card-icon{
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+}
+
+.team-card-content h3{
+  color: var(--gold-light);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.team-card-content p{
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 600px){
+  .team-card{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 26px 22px;
+  }
+}
+
+/* =======================================================
+   WHO ARE WE — flip card (l9dima, b7al carte visite)
+======================================================= */
+.whoarewe-container {
+  height: 100%;
+  padding: 15px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 1px 5px black;
+  position: relative;
+  overflow: hidden;
+}
+
+.face {
+  padding: 30px;
+}
+
+.card:before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  background-image: url(IMG-20260708-WA0013.jpg);
+  background-size: cover;
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  z-index: 300;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: rgb(5, 187, 96) rgb(5, 187, 96) rgb(5, 187, 96) white;
+}
+
+.card:after {
+  content: "";
+  width: 400px;
+  height: 150px;
+  background-color: rgb(72, 245, 37);
+  position: absolute;
+  transform: rotate(-25deg);
+  bottom: -60px;
+  right: -100px;
+}
+
+.card .front {
+  position: relative;
+}
+
+/* تنسيق الروابط باش ما تبقاش مشوهة */
+.card .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px !important;
+  margin-top: 20px !important;
+}
+
+.card .contact > div {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: #f9f9f9;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: 0.3s;
+  z-index: 400;
+}
+
+.card .contact > div:hover {
+  background: #e0f7fa;
+}
+
+.card .contact a {
+  text-decoration: none !important;
+  color: #333 !important;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* باش ما تخرجش على النافذة */
+  margin-right: 5px;
+}
+
+/* تنسيق الأيقونات */
+.card .icon {
+  width: 25px !important;
+  height: 25px !important;
+  object-fit: contain;
+}
