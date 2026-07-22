@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز خدمات دعم الشباب - الحي الحسني</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="navbar" id="topNav">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="https://via.placeholder.com/80x80/123329/d4af37?text=CSJ" alt="شعار المركز">
+            </div>
+            <span>مركز خدمات دعم الشباب</span>
+        </div>
+        <button class="burger" id="burgerBtn" aria-label="فتح القائمة">
+            <span></span><span></span><span></span>
+        </button>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><button onclick="scrollToSection('about')"><i class="fas fa-info-circle"></i> من نحن</button></li>
+                <li><button onclick="scrollToSection('hours')"><i class="fas fa-clock"></i> أوقات العمل</button></li>
+                <li><button onclick="scrollToSection('activities')"><i class="fas fa-tasks"></i> الأنشطة</button></li>
+                <li><button onclick="scrollToSection('gallery')"><i class="fas fa-images"></i> المعرض</button></li>
+                <li><button onclick="scrollToSection('team')"><i class="fas fa-users"></i> الفريق</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero" id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">🌟 مرحباً بكم</div>
+                <h1>مركز خدمات دعم الشباب</h1>
+                <p>نحو مستقبل أفضل للشباب المغربي</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">اكتشف المزيد</a>
+                    <a href="#activities" class="btn btn-secondary">الأنشطة</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">نشاط متنوع</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">شاب مستفيد</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">سنة من العطاء</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ================= WHO ARE WE ================= -->
+        <section id="about" aria-labelledby="about-title">
+            <div class="section-title">
+                <h2 id="about-title">🛑 من نحن</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="who-are-we-card animate-on-scroll">
+                <div class="about-content">
+                    <h3>نحن هنا لدعم رحلتك</h3>
+                    <p>
+                        هنا فين كيبدا كل حلم صغير طريقو نحو الواقع. مركز خدمات دعم الشباب فضاء مفتوح لكل شاب وشابة باغيين يطورو مهاراتهم، يكتشفو مواهبهم، أو غير يلقاو بلاصة يحسو فيها بالانتماء. من الرياضة للتكوين، من اللغات للفن، من ريادة الأعمال للدعم المدرسي — كنخلقو الفرص، وكنواكبو الطريق خطوة بخطوة.
+                    </p>
+                    <p>
+                        مركز خدمات دعم الشباب هو مبادرة كتهدف لمواكبة الشباب فمسارهم الشخصي والمهني، عبر برامج متنوعة كتجمع بين التكوين، الرياضة، الثقافة والدعم المدرسي. رسالتنا بسيطة: نعطيو لكل شاب الأدوات اللي محتاجها باش يبني مستقبله بثقة.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>دعم مستمر</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>تكوين متخصص</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <span>فريق متكامل</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-logo-container">
+                    <img src="https://via.placeholder.com/300x300/123329/d4af37?text=CSJ" alt="شعار المركز" class="about-logo pulse-animation">
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-facebook"></i>
+                        <a href="https://www.facebook.com/100063943477819/mentions/">Centre des services à la jeunesse Hay Hassani</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/csj_hay_hassani/">Csj_hay_hassani</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+212640907531">+212 640 907 531</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/212646641559">+212 646 641 559</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HOURS ================= -->
+        <section id="hours" aria-labelledby="hours-title">
+            <div class="section-title">
+                <h2 id="hours-title">🕐 أوقات العمل</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="hours-container">
+                <div class="hours-card animate-on-scroll">
+                    <div class="hours-header">
+                        <div class="logo-badge-container">
+                            <img src="https://via.placeholder.com/200x200/123329/d4af37?text=CSJ" alt="لوغو المركز" class="hours-logo">
+                        </div>
+                        <h3>مركز خدمات الشباب الحي الحسني</h3>
+                    </div>
+                    <div class="hours-body">
+                        <div class="open-status" id="openStatus">
+                            <span class="status-badge" id="statusBadge">...جار التحميل</span>
+                            <span class="status-text" id="statusText">تحقق من التوقيت</span>
+                        </div>
+                        <div class="hours-schedule">
+                            <div class="hours-block">
+                                <span class="hours-days">📅 من الثلاثاء إلى السبت</span>
+                                <div class="hours-row">
+                                    <span class="hours-label">🌅 صباحاً</span>
+                                    <span class="hours-time">10:00 - 13:00</span>
+                                </div>
+                                <div class="hours-row">
+                                    <span class="hours-label">🌙 مساءً</span>
+                                    <span class="hours-time">16:00 - 20:00</span>
+                                </div>
+                            </div>
+                            <div class="hours-block">
+                                <span class="hours-days">📅 يوم الأحد</span>
+                                <div class="hours-row">
+                                    <span class="hours-label">🌅 صباحاً</span>
+                                    <span class="hours-time">10:00 - 13:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hours-contact">
+                            <a href="tel:+212640907531"><i class="fas fa-phone"></i> 06.40.90.75.31</a>
+                            <a href="tel:+212646641559"><i class="fas fa-phone"></i> 06.46.64.15.59</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ACTIVITIES ================= -->
+        <section id="activities" aria-labelledby="activities-title">
+            <div class="section-title">
+                <h2 id="activities-title">🎯 الأنشطة ديالنا</h2>
+                <div class="divider"></div>
+                <span class="badge reg-badge"><i class="fas fa-check-circle"></i> التسجيل مفتوح طيلة السنة</span>
+            </div>
+
+            <div class="chip-grid" id="activities-container">
+                <div class="chip"><span class="chip-icon">📚</span><span class="chip-title">الدعم المدرسي</span></div>
+                <div class="chip"><span class="chip-icon">🗣️</span><span class="chip-title">اللغات</span></div>
+                <div class="chip"><span class="chip-icon">🤖</span><span class="chip-title">الروبوتيك</span></div>
+                <div class="chip"><span class="chip-icon">🥋</span><span class="chip-title">BUDO</span></div>
+                <div class="chip"><span class="chip-icon">🥋</span><span class="chip-title">التيكواندو</span></div>
+                <div class="chip"><span class="chip-icon">💻</span><span class="chip-title">الإعلاميات</span></div>
+                <div class="chip"><span class="chip-icon">🧮</span><span class="chip-title">الحساب الذهني</span></div>
+                <div class="chip"><span class="chip-icon">✂️</span><span class="chip-title">الأعمال اليدوية</span></div>
+                <div class="chip"><span class="chip-icon">🎨</span><span class="chip-title">الرسم</span></div>
+                <div class="chip"><span class="chip-icon">📖</span><span class="chip-title">فضاء للمطالعة</span></div>
+                <div class="chip"><span class="chip-icon">🏀</span><span class="chip-title">كرة السلة</span></div>
+                <div class="chip"><span class="chip-icon">⛺</span><span class="chip-title">مخيمات</span></div>
+                <div class="chip"><span class="chip-icon">🎭</span><span class="chip-title">المسرح</span></div>
+                <div class="chip"><span class="chip-icon">🎵</span><span class="chip-title">الموسيقى</span></div>
+                <div class="chip"><span class="chip-icon">🎓</span><span class="chip-title">برامج تكوين وإدماج الشباب</span></div>
+            </div>
+
+            <div class="activities-contact">
+                <span><i class="fas fa-book"></i> Centre des Services à la Jeunesse Hay Hassani</span>
+                <span><i class="fas fa-camera"></i> csj_hay_hassani</span>
+                <span><i class="fas fa-phone"></i> <a href="tel:+212640907531">06.40.90.75.31</a> / <a href="tel:+212646641559">06.46.64.15.59</a></span>
+                <span><i class="fas fa-map-marker-alt"></i> الحرارين، بني توزين، قرب ثانوية سيدي إدريس، طنجة</span>
+            </div>
+
+            <div id="activities-details">
+                <!-- Activity 1 -->
+                <article class="activity animate-on-scroll">
+                    <span class="badge free"><i class="fas fa-gift"></i> مجاني</span>
+                    <div class="activity-icon">🚀</div>
+                    <h3>مواكبة حاملي وحاملات المشاريع</h3>
+                    <p class="activity-subtitle">المدرسة الصيفية EsMaroc في ريادة الأعمال</p>
+                    <p>برنامج عملي ومجاني يمتد ليومين، موجه لأصحاب الأفكار والمقاولين الذاتيين وأعضاء التعاونيات والشركات، يهدف لتطوير مهاراتك وتعزيز مشروعك، مع شهادة مشاركة فالنهاية.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-user"></i> 18 - 35 سنة</span>
+                        <span><i class="fas fa-calendar"></i> يومان تكوين</span>
+                        <span><i class="fas fa-certificate"></i> شهادة مشاركة</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> الرباط، سلا، القنيطرة، فاس، مكناس، طنجة، تطوان، الحسيمة</span>
+                    </div>
+                </article>
+
+                <!-- Activity 2 -->
+                <article class="activity animate-on-scroll">
+                    <span class="badge deadline"><i class="fas fa-clock"></i> آخر أجل: 15 مارس</span>
+                    <div class="activity-icon">💡</div>
+                    <h3>دعوة للمشاريع الناشئة</h3>
+                    <p class="activity-subtitle">مشروع DAPP II</p>
+                    <p>دعوة مفتوحة لحاملي أفكار المشاريع والشركات الناشئة اللي تهدف لتطوير خدمات أو منتجات جديدة ذات تأثير قوي ومبتكر و/أو خضراء، مع تمويل على شكل منح ومواكبة تتراوح بين سنة و3 سنوات.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-user"></i> 18 - 35 سنة</span>
+                        <span><i class="fas fa-money-bill"></i> تمويل بمنح</span>
+                        <span><i class="fas fa-handshake"></i> مواكبة 1-3 سنوات</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> طنجة، تطوان، الحسيمة، الرباط، سلا، القنيطرة، فاس، مكناس</span>
+                    </div>
+                </article>
+
+                <!-- Activity 3 -->
+                <article class="activity animate-on-scroll">
+                    <div class="activity-icon">🥋</div>
+                    <h3>Budo Martial Arts</h3>
+                    <p class="activity-subtitle">Budo Système Défense Totale</p>
+                    <p>تكوين فـ فنون القتال والدفاع عن النفس، تحت إشراف رئيس Budo Système Défense Totale، بتأطير من الجامعة الملكية المغربية للجيدو و A.M.A.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-shield-alt"></i> دفاع عن النفس</span>
+                        <span><i class="fas fa-users"></i> كل الأعمار</span>
+                        <span><i class="fas fa-star"></i> B.S.D.T</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-user-tie"></i> عبد الحق الزيناتي — الدان 8 Budo-Total</span>
+                        <span><i class="fas fa-user-tie"></i> يونس الزيناتي — الدان 3 Budo-Total</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212665129776">+212 665 129 776</a></span>
+                    </div>
+                </article>
+
+                <!-- Activity 4 -->
+                <article class="activity animate-on-scroll">
+                    <span class="badge free"><i class="fas fa-check"></i> تسجيل مفتوح</span>
+                    <div class="activity-icon">🇩🇪</div>
+                    <h3>تعلم اللغة الألمانية</h3>
+                    <p class="activity-subtitle">Deutsch Lernen — دورات تفاعلية</p>
+                    <p>رحلة تعلم اللغة الألمانية من الصفر حتى الإتقان، مع مدرّسين محترفين وأوقات مرنة تناسب الجميع. المقاعد محدودة.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-rocket"></i> من الصفر للإتقان</span>
+                        <span><i class="fas fa-clock"></i> أوقات مرنة</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> الحرارين، بني توزين، قرب ثانوية سيدي إدريس، طنجة</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212640907531">06.40.90.75.31</a> / <a href="tel:+212646641559">06.46.64.15.59</a></span>
+                    </div>
+                </article>
+
+                <!-- Activity 5 -->
+                <article class="activity animate-on-scroll">
+                    <span class="badge free"><i class="fas fa-infinity"></i> طيلة السنة</span>
+                    <div class="activity-icon">📚</div>
+                    <h3>الدعم المدرسي</h3>
+                    <p class="activity-subtitle">لجميع المستويات — التسجيل مفتوح طيلة السنة</p>
+                    <p>دروس دعم فالرياضيات، الفرنسية، العربية، العلوم والفيزياء، موجهة للمستوى الابتدائي والإعدادي والثانوي، مع أساتذة مؤطرين.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-child"></i> الابتدائي</span>
+                        <span><i class="fas fa-user-graduate"></i> الإعدادي</span>
+                        <span><i class="fas fa-user-tie"></i> الثانوي</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> الحرارين، بني توزين، قرب ثانوية سيدي إدريس، طنجة</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212640907531">06.40.90.75.31</a> / <a href="tel:+212646641559">06.46.64.15.59</a></span>
+                    </div>
+                </article>
+
+                <!-- Activity 6 -->
+                <article class="activity animate-on-scroll">
+                    <div class="activity-icon">🎨</div>
+                    <h3>الرسم والأعمال اليدوية</h3>
+                    <p class="activity-subtitle">ورشات إبداعية أسبوعية</p>
+                    <p>ورشة أسبوعية للرسم والأعمال اليدوية، فرصة للأطفال والشباب باش يكتشفو مواهبهم الفنية فجو ممتع ومنظم.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-calendar"></i> كل يوم أحد</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-clock"></i> من 11:00 إلى 13:00</span>
+                        <span><i class="fas fa-map-marker-alt"></i> الحرارين، بني توزين، قرب ثانوية سيدي إدريس، طنجة</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212640907531">06.40.90.75.31</a> / <a href="tel:+212646641559">06.46.64.15.59</a></span>
+                    </div>
+                </article>
+
+                <!-- Activity 7 -->
+                <article class="activity animate-on-scroll">
+                    <span class="badge free"><i class="fas fa-check"></i> التسجيل مفتوح</span>
+                    <div class="activity-icon">🏀</div>
+                    <h3>نادي كرة السلة</h3>
+                    <p class="activity-subtitle">جمعية نبض الشباب</p>
+                    <p>جمعية نبض الشباب كتعلن عن افتتاح التسجيل بنادي كرة السلة، بحصص تدريبية أسبوعية لكل المستويات.</p>
+                    <div class="activity-tags">
+                        <span><i class="fas fa-calendar"></i> الخميس 17:00-18:30</span>
+                        <span><i class="fas fa-calendar"></i> الأحد 11:00-12:30</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> الحرارين، بني توزين، قرب ثانوية سيدي إدريس، طنجة</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212635554580">0635-554580</a> / <a href="tel:+212773186676">0773-186676</a></span>
+                    </div>
+                </article>
+
+                <!-- Activity 8 -->
+                <article class="activity animate-on-scroll">
+                    <div class="activity-icon">🗣️</div>
+                    <h3>تعليم اللغات والتواصل</h3>
+                    <p class="activity-subtitle">مركز خدمات الشباب الحي الحسني</p>
+                    <p>دروس فتعليم اللغات والتواصل: الإنجليزية، الفرنسية، الألمانية والإسبانية، مؤطرة من طرف أساتذة ذوي خبرة عالية.</p>
+                    <div class="activity-tags">
+                        <span>🇬🇧 الإنجليزية</span>
+                        <span>🇫🇷 الفرنسية</span>
+                        <span>🇩🇪 الألمانية</span>
+                        <span>🇪🇸 الإسبانية</span>
+                    </div>
+                    <div class="activity-meta">
+                        <span><i class="fas fa-book"></i> Centre des Services à la Jeunesse Hay Hassani</span>
+                        <span><i class="fas fa-camera"></i> csj.hay.hassani</span>
+                        <span><i class="fas fa-phone"></i> <a href="tel:+212640907531">06.40.90.75.31</a> / <a href="tel:+212646641559">06.46.64.15.59</a></span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================= GALLERY / CAROUSEL ================= -->
+        <section id="gallery" aria-labelledby="gallery-title">
+            <div class="section-title">
+                <h2 id="gallery-title">📸 معرض الأنشطة</h2>
+                <div class="divider"></div>
+                <span class="badge reg-badge"><i class="fas fa-images"></i> لحظات من المركز</span>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- الصورة 1 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=1200&h=600&fit=crop" alt="أنشطة شبابية - دعم مدرسي">
+                        <div class="carousel-caption">
+                            <h3>📚 الدعم المدرسي</h3>
+                            <p>دروس تفاعلية لجميع المستويات مع أساتذة مؤطرين</p>
+                        </div>
+                    </div>
+                    
+                    <!-- الصورة 2 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=600&fit=crop" alt="أنشطة رياضية - كرة السلة">
+                        <div class="carousel-caption">
+                            <h3>🏀 نادي كرة السلة</h3>
+                            <p>حصص تدريبية أسبوعية لكل المستويات</p>
+                        </div>
+                    </div>
+                    
+                    <!-- الصورة 3 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&h=600&fit=crop" alt="تعليم اللغات">
+                        <div class="carousel-caption">
+                            <h3>🗣️ تعليم اللغات</h3>
+                            <p>الإنجليزية، الفرنسية، الألمانية، الإسبانية</p>
+                        </div>
+                    </div>
+                    
+                    <!-- الصورة 4 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=1200&h=600&fit=crop" alt="فنون قتالية">
+                        <div class="carousel-caption">
+                            <h3>🥋 فنون القتال BUDO</h3>
+                            <p>دفاع عن النفس وتكوين متخصص</p>
+                        </div>
+                    </div>
+                    
+                    <!-- الصورة 5 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&h=600&fit=crop" alt="أنشطة فنية">
+                        <div class="carousel-caption">
+                            <h3>🎨 الرسم والأعمال اليدوية</h3>
+                            <p>ورشات إبداعية كل أحد</p>
+                        </div>
+                    </div>
+
+                    <!-- الصورة 6 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=600&fit=crop" alt="تكنولوجيا وروبوتيك">
+                        <div class="carousel-caption">
+                            <h3>🤖 الروبوتيك والإعلاميات</h3>
+                            <p>تكوين في البرمجة والذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+
+                    <!-- الصورة 7 -->
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&h=600&fit=crop" alt="شباب في المركز">
+                        <div class="carousel-caption">
+                            <h3>👥 فضاء الشباب</h3>
+                            <p>مكان للقاء والتبادل والإبداع</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أزرار التنقل -->
+                <button class="carousel-btn prev-btn" id="prevBtn" aria-label="السابق">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="carousel-btn next-btn" id="nextBtn" aria-label="التالي">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <!-- نقاط التحديد -->
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <!-- ================= TEAM ================= -->
+        <section id="team" aria-labelledby="team-title">
+            <div class="section-title">
+                <h2 id="team-title">🤝 الفريق ديالنا</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="team-card animate-on-scroll">
+                <div class="team-card-icon">🤝</div>
+                <div class="team-card-content">
+                    <h3>فريق متعدد التخصصات، فخدمتكم طول السنة</h3>
+                    <p>
+                        كيتكون فريق مركز خدمات الشباب الحي الحسني من مساعد اجتماعي كيواكب الشباب فمشاكلهم اليومية ويوجههم للخدمة المناسبة، منشط سوسيوثقافي كيؤطر الأنشطة الثقافية والفنية والرياضية، وموظف استقبال كيرحب بزوار المركز ويوجههم لأقرب نشاط أو خدمة. هاد الفريق كيشتغل جنب مع مؤطرين وأساتذة مختصين فمجالات متنوعة: الدعم المدرسي، تعليم اللغات، الإعلاميات والروبوتيك، الحساب الذهني، فنون القتال (BUDO والتيكواندو)، كرة السلة، الرسم والأعمال اليدوية، المسرح والموسيقى، فضاء للمطالعة، المخيمات، وبرامج التكوين وإدماج الشباب. الكل كيخدم بروح فريق واحد باش يوفر لكل شاب وشابة مواكبة كاملة فمسارهم الشخصي والمهني، من أول يوم كيدخلو فيه للمركز.
+                    </p>
+                    <div class="team-values">
+                        <div class="value-item">
+                            <i class="fas fa-heart"></i>
+                            <span>التزام</span>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-star"></i>
+                            <span>تميز</span>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>ثقة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>مركز خدمات دعم الشباب</h4>
+                <p>نحو مستقبل أفضل للشباب المغربي</p>
+            </div>
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#activities">الأنشطة</a></li>
+                    <li><a href="#gallery">المعرض</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/100063943477819/mentions/" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/csj_hay_hassani/" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/212646641559" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 مركز خدمات دعم الشباب. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- ================= BACK TO TOP ================= -->
+    <button id="backToTop" class="back-to-top" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js.js"></script>
+</body>
+</html>
